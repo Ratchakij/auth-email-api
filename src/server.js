@@ -1,5 +1,7 @@
 import dotenv from "dotenv";
 import express from 'express';
+import cors from "cors";
+import cookieParser from "cookie-parser";
 import { connectDB } from "./db/connectDB.js";
 import authRoute from "./routes/auth-route.js";
 
@@ -7,7 +9,12 @@ dotenv.config();
 
 const app = express();
 
-app.use(express.json());
+app.use(cors({
+    origin: ["http://localhost:5173", "http://localhost:5174"],
+    credentials: true // ถ้า request มาจากโดเมนอื่น จะถูกปฏิเสธ
+}));
+app.use(express.json()); // allows us to parse incoming requests:req.body
+app.use(cookieParser()); // allows us to parse incoming cookies
 
 app.use("/api/auth", authRoute);
 

@@ -4,6 +4,8 @@
 ใช้ export default function // อ่านง่าย และเป็นมาตรฐานของ ES Modules
 ใช้ export default กับตัวแปรที่เป็น Arrow Function // ใช้ Arrow Function (=>) ได้
 
+<!-- npm install -->
+
 
 # Build 
 build feature auth signup
